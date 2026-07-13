@@ -1,0 +1,15 @@
+{
+  "PINNEDCARDS.PinToToken":         "Pin to Token",
+  "PINNEDCARDS.Pin":                "Pin",
+  "PINNEDCARDS.Unpin":              "Unpin",
+  "PINNEDCARDS.UnpinTitle":         "Remove Pinned Effect",
+  "PINNEDCARDS.UnpinConfirm":       "Remove \"{label}\" from this token?",
+  "PINNEDCARDS.PinnedNotification": "Pinned \"{label}\" to {token}.",
+  "PINNEDCARDS.NoTokensWarning":    "Place a token on the scene before pinning.",
+  "PINNEDCARDS.PickToken":          "Choose a token to pin to:",
+  "PINNEDCARDS.ChangeIcon":         "Change Icon",
+  "PINNEDCARDS.PickIcon":           "Choose Icon",
+  "PINNEDCARDS.NewCustomCondition": "New Custom Condition",
+  "PINNEDCARDS.TemplateFailed":     "Could not re-place template.",
+  "PINNEDCARDS.Pin.Default":        "Pinned Effect"
+}

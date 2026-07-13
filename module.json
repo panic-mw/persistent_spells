@@ -18,6 +18,9 @@
       "name": "Russell"
     }
   ],
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" }
+  ],
   "manifest": "https://raw.githubusercontent.com/panic-mw/persistent_spells/main/module.json",
   "download":  "https://github.com/panic-mw/persistent_spells/archive/refs/heads/main.zip",
   "flags": {}
