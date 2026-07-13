@@ -1,0 +1,20 @@
+<div class="card-popout-body">
+  {{#if messageFound}}
+    <div class="card-popout-message">
+      {{!-- Message HTML injected via _onRender --}}
+    </div>
+    {{#if hasTemplate}}
+    <div class="card-popout-actions">
+      <button type="button" data-action="replaceTemplate" class="pinned-cards-replace-btn">
+        <i class="fa-solid fa-bullseye"></i>
+        Re-place Template
+      </button>
+    </div>
+    {{/if}}
+  {{else}}
+    <div class="card-popout-expired">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      Message no longer available.
+    </div>
+  {{/if}}
+</div>

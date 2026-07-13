@@ -1,0 +1,24 @@
+{
+  "id": "pinned-cards",
+  "title": "Pinned Cards",
+  "description": "Attach chat cards to tokens as rich condition icons. Click to open a live popout with working roll buttons.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "esmodules": [
+    "scripts/module.mjs"
+  ],
+  "styles": [
+    "styles/pinned-cards.css"
+  ],
+  "authors": [
+    {
+      "name": "Russell"
+    }
+  ],
+  "manifest": "https://raw.githubusercontent.com/panic-mw/persistent_spells/main/module.json",
+  "download":  "https://github.com/panic-mw/persistent_spells/archive/refs/heads/main.zip",
+  "flags": {}
+}

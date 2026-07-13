@@ -1,0 +1,187 @@
+/* ── Pin row in Token HUD ──────────────────────────────────────────────────── */
+
+.pinned-cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  padding: 2px 0;
+  min-height: 0;
+}
+
+.pinned-cards-row--empty {
+  display: none;
+}
+
+.pinned-cards-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  object-fit: cover;
+  background: rgba(0, 0, 0, 0.5);
+  transition: border-color 0.15s, transform 0.1s;
+}
+
+.pinned-cards-icon:hover {
+  border-color: #f0d082;
+  transform: scale(1.1);
+}
+
+/* ── Custom condition button in HUD ──────────────────────────────────────── */
+
+.pinned-cards-custom-btn {
+  display: block;
+  margin: 2px auto 0;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 8px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.pinned-cards-custom-btn:hover {
+  color: #f0d082;
+  border-color: #f0d082;
+}
+
+/* ── Pin button on chat cards ────────────────────────────────────────────── */
+
+.pinned-cards-pin-btn {
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 6px;
+  float: right;
+  transition: color 0.15s;
+}
+
+.pinned-cards-pin-btn:hover {
+  color: #f0d082;
+}
+
+/* ── Right-click context menu ────────────────────────────────────────────── */
+
+.pinned-cards-context-menu {
+  background: #1a1a1e;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  min-width: 120px;
+  padding: 4px 0;
+}
+
+.pinned-cards-context-item {
+  display: block;
+  color: #ddd;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.1s, color 0.1s;
+}
+
+.pinned-cards-context-item:hover {
+  background: rgba(240, 208, 130, 0.15);
+  color: #f0d082;
+}
+
+/* ── Card popout window ──────────────────────────────────────────────────── */
+
+.pinned-cards-popout .card-popout-body {
+  padding: 0;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.pinned-cards-popout .card-popout-message {
+  /* Let the dnd5e card render naturally */
+}
+
+.pinned-cards-popout .card-popout-actions {
+  padding: 6px 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pinned-cards-replace-btn {
+  width: 100%;
+  background: rgba(60, 80, 120, 0.6);
+  border: 1px solid rgba(100, 140, 200, 0.4);
+  border-radius: 4px;
+  color: #a8c4f0;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 8px;
+  transition: background 0.15s;
+}
+
+.pinned-cards-replace-btn:hover {
+  background: rgba(60, 80, 120, 0.9);
+}
+
+.card-popout-expired {
+  padding: 16px;
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.card-popout-expired i {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #f0a070;
+}
+
+/* ── Custom condition chat card ──────────────────────────────────────────── */
+
+.pinned-cards-custom-card {
+  font-family: var(--font-primary, serif);
+}
+
+.pinned-cards-custom-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pinned-cards-custom-card .card-header img {
+  width: 36px;
+  height: 36px;
+  border: none;
+}
+
+.pinned-cards-custom-card .card-header h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #f0d082;
+}
+
+/* ── Custom condition form ───────────────────────────────────────────────── */
+
+.pinned-cards-custom-form fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  margin: 8px 0;
+  padding: 8px;
+}
+
+.pinned-cards-custom-form legend {
+  color: #aaa;
+  font-size: 12px;
+  padding: 0 4px;
+}
+
+.req {
+  color: #e07060;
+}
