@@ -63,9 +63,11 @@ export function pickIcon(defaultIcon = "", title = "Choose Icon") {
         ok: {
           icon:     '<i class="fa-solid fa-check"></i>',
           label:    "Use this icon",
-          callback: (html) => {
-            const url = html.querySelector("#pc-icon-url")?.value?.trim();
-            const sel = html.querySelector("#pc-icon-select")?.value;
+          callback: (htmlArg) => {
+            // Dialog (ApplicationV1) passes jQuery in v14 — normalize to DOM element.
+            const el = htmlArg?.jquery ? htmlArg[0] : htmlArg;
+            const url = el.querySelector("#pc-icon-url")?.value?.trim();
+            const sel = el.querySelector("#pc-icon-select")?.value;
             resolve(url || sel || defaultIcon || STATUS_ICONS[0].path);
           },
         },

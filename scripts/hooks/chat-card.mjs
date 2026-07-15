@@ -105,8 +105,10 @@ async function showTokenPickerDialog(tokenDocs, message) {
       pin: {
         icon:     '<i class="fa-solid fa-thumbtack"></i>',
         label:    game.i18n.localize("PINNEDCARDS.Pin"),
-        callback: async (html) => {
-          const tokenId  = html.querySelector('[name="tokenId"]')?.value;
+        callback: async (htmlArg) => {
+          // Dialog (ApplicationV1) passes jQuery in v14 — normalize to DOM element.
+          const el      = htmlArg?.jquery ? htmlArg[0] : htmlArg;
+          const tokenId  = el.querySelector('[name="tokenId"]')?.value;
           const tokenDoc = tokenDocs.find(t => t.id === tokenId);
           if (tokenDoc) await iconPickerThenPin(tokenDoc, message);
         },
