@@ -17,20 +17,22 @@ function onRenderTokenHUD(app, html) {
   const pins = PinManager.getPins(tokenDoc);
   const canEdit = game.user.isGM || tokenDoc.isOwner;
 
-  // Inject pin row. Place it immediately AFTER .status-effects so it sits
-  // in the same visual band as the condition pips rather than over the token.
+  // In Foundry v14 the .status-effects element lives inside a toggleable palette
+  // (.control-icon.togglePalette), so inserting after it hides our row inside that
+  // collapsed panel. Instead, insert the pin row after the entire .col.right column
+  // so it appears below the HUD controls and is always visible.
   const row = buildPinRow(pins, tokenDoc, canEdit);
-  const statusEl = html.querySelector(".status-effects");
-  if (statusEl) {
-    statusEl.insertAdjacentElement("afterend", row);
+  const rightCol = html.querySelector(".col.right");
+  if (rightCol) {
+    rightCol.insertAdjacentElement("afterend", row);
   } else {
     html.appendChild(row);
   }
 
-  // "+ Custom condition" button — GM/owner only.
+  // "+ Custom condition" button lives inside .col.right alongside other control icons.
   if (canEdit) {
     const customBtn = buildCustomButton(tokenDoc);
-    html.appendChild(customBtn);
+    (rightCol ?? html).appendChild(customBtn);
   }
 }
 

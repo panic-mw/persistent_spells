@@ -2,19 +2,23 @@ import { PinManager } from "../models/pin-manager.mjs";
 import { pickIcon }   from "../models/icon-picker.mjs";
 
 export function registerChatCardHook() {
+  // dnd5e.renderChatMessage fires after dnd5e has fully processed the card.
+  // renderChatMessageHTML (new v14 hook) covers plain messages; html is always HTMLElement.
   Hooks.on("dnd5e.renderChatMessage", onRenderChatMessage);
-  Hooks.on("renderChatMessage",       onRenderChatMessage);
+  Hooks.on("renderChatMessageHTML",   onRenderChatMessage);
 }
 
 async function onRenderChatMessage(message, html) {
   if (!game.user.isGM && !message.isAuthor) return;
+  // Guard: dnd5e.renderChatMessage + renderChatMessageHTML both fire for dnd5e cards.
+  if (html.querySelector('[data-action="pin-card"]')) return;
 
   const btn = document.createElement("button");
-  btn.type      = "button";
+  btn.type           = "button";
   btn.dataset.action = "pin-card";
-  btn.className = "pinned-cards-pin-btn";
-  btn.title     = game.i18n.localize("PINNEDCARDS.PinToToken");
-  btn.innerHTML = '<i class="fa-solid fa-thumbtack"></i>';
+  btn.className      = "pinned-cards-pin-btn";
+  btn.title          = game.i18n.localize("PINNEDCARDS.PinToToken");
+  btn.innerHTML      = '<i class="fa-solid fa-thumbtack"></i>';
 
   btn.addEventListener("click", (e) => { e.stopPropagation(); onPinClick(message); });
 

@@ -1,11 +1,18 @@
 /* ── Pin row in Token HUD ──────────────────────────────────────────────────── */
 
+/*
+ * Foundry v14 sets pointer-events: none on #hud > * (which includes #token-hud).
+ * Only .palette children are carved out. We must re-enable pointer events on
+ * everything we inject, or clicks pass through to the canvas.
+ */
+
 .pinned-cards-row {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
   justify-content: center;
   padding: 4px 0 2px;
+  pointer-events: all !important;
 }
 
 .pinned-cards-row--empty {
@@ -18,6 +25,7 @@
   position: relative;
   display: inline-block;
   line-height: 0;
+  pointer-events: all !important;
 }
 
 .pinned-cards-icon {
@@ -26,6 +34,7 @@
   border-radius: 4px !important;
   border: 1px solid rgba(255, 255, 255, 0.35) !important;
   cursor: pointer !important;
+  pointer-events: all !important;
   object-fit: cover;
   background: rgba(0, 0, 0, 0.5);
   transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
@@ -55,6 +64,7 @@
   line-height: 15px;
   text-align: center;
   cursor: pointer;
+  pointer-events: all !important;
   z-index: 1;
   border: 1px solid rgba(0,0,0,0.4);
   transition: background 0.1s;
@@ -78,6 +88,7 @@
   border-radius: 4px;
   color: #ccc;
   cursor: pointer;
+  pointer-events: all !important;
   font-size: 14px;
   padding: 2px 8px;
   transition: color 0.15s, border-color 0.15s;
